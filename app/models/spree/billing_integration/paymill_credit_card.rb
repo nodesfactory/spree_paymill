@@ -56,7 +56,7 @@ module Spree
     end
     
     def void(response_code, credit_card, options = {})
-      amount = credit_card[:subtotal].to_i - credit_card[:discount].to_i
+      amount = credit_card[:subtotal].to_i + credit_card[:discount].to_i
       provider.refund(amount, response_code, options)
     end
   end
